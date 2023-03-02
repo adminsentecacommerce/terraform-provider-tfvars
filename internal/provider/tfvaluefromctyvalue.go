@@ -17,7 +17,7 @@ func tfValueFromCtyValue(val cty.Value) (*tftypes.Value, tftypes.Type, error) {
 		v := tftypes.NewValue(tftypes.Number, val.AsBigFloat())
 		return &v, tftypes.Number, nil
 	case typ.Equals(cty.Bool):
-		v := tftypes.NewValue(tftypes.Bool, val)
+		v := tftypes.NewValue(tftypes.Bool, val.True())
 		return &v, tftypes.Bool, nil
 	case typ.IsSetType():
 		vals := make([]tftypes.Value, 0)
